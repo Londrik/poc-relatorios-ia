@@ -1,0 +1,24 @@
+{
+  "cpfs": {
+    "***.456.789-**": {
+      "nome_titular": "JOAO DA SILVA SOUZA",
+      "documento_mascarado": "***.456.789-**",
+      "status_cadastral": "REGULAR",
+      "score_credito": 820,
+      "situacao_fiscal": "NENHUMA PENDENCIA ENCONTRADA",
+      "pep_flag": false,
+      "ultima_atualizacao": "2026-09-01"
+    }
+  },
+  "cnpjs": {
+    "12.345.***/0001-**": {
+      "razao_social": "TECH EMPREENDIMENTOS LTDA",
+      "documento_mascarado": "12.345.***/0001-**",
+      "situacao_cadastral": "ATIVA",
+      "capital_social": "R$ 500.000,00",
+      "pendencias_financeiras": "NENHUMA REGISTRADA",
+      "classificacao_risco": "BAIXO",
+      "ultima_atualizacao": "2026-09-15"
+    }
+  }
+}
