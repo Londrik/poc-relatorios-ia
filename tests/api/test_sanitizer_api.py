@@ -22,7 +22,7 @@ class MockGuardrailService:
 
 app.dependency_overrides[get_guardrail_service] = lambda: MockGuardrailService()
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_api_sanitize_cpf_success():
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as client:
@@ -36,7 +36,7 @@ async def test_api_sanitize_cpf_success():
     assert data["sanitized_text"] == "Emitir via do CPF ***.456.789-**."
     assert "CPF" in data["pii_detected"]
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_api_sanitize_prompt_injection():
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as client:
