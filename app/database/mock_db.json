@@ -8,6 +8,33 @@
       "situacao_fiscal": "NENHUMA PENDENCIA ENCONTRADA",
       "pep_flag": false,
       "ultima_atualizacao": "2026-09-01"
+    },
+    "***.234.567-**": {
+      "nome_titular": "MARIA APARECIDA OLIVEIRA",
+      "documento_mascarado": "***.234.567-**",
+      "status_cadastral": "REGULAR",
+      "score_credito": 910,
+      "situacao_fiscal": "CERTIDAO NEGATIVA VALIDA",
+      "pep_flag": false,
+      "ultima_atualizacao": "2026-09-10"
+    },
+    "***.789.012-**": {
+      "nome_titular": "CARLOS EDUARDO PEREIRA",
+      "documento_mascarado": "***.789.012-**",
+      "status_cadastral": "PENDENTE REGULARIZACAO",
+      "score_credito": 450,
+      "situacao_fiscal": "PENDENCIA NA RECEITA FEDERAL",
+      "pep_flag": false,
+      "ultima_atualizacao": "2026-08-20"
+    },
+    "***.321.654-**": {
+      "nome_titular": "ANA BEATRIZ SANTOS",
+      "documento_mascarado": "***.321.654-**",
+      "status_cadastral": "REGULAR",
+      "score_credito": 780,
+      "situacao_fiscal": "NENHUMA PENDENCIA ENCONTRADA",
+      "pep_flag": true,
+      "ultima_atualizacao": "2026-09-22"
     }
   },
   "cnpjs": {
@@ -19,6 +46,24 @@
       "pendencias_financeiras": "NENHUMA REGISTRADA",
       "classificacao_risco": "BAIXO",
       "ultima_atualizacao": "2026-09-15"
+    },
+    "98.765.***/0001-**": {
+      "razao_social": "LOGISTICA BRASIL TRANSPORTES SA",
+      "documento_mascarado": "98.765.***/0001-**",
+      "situacao_cadastral": "ATIVA",
+      "capital_social": "R$ 2.500.000,00",
+      "pendencias_financeiras": "1 PROTESTO CARTORARIO",
+      "classificacao_risco": "MEDIO",
+      "ultima_atualizacao": "2026-09-18"
+    },
+    "45.678.***/0001-**": {
+      "razao_social": "DISTRIBUIDORA DE ALIMENTOS CENTRAL LTDA",
+      "documento_mascarado": "45.678.***/0001-**",
+      "situacao_cadastral": "BAIXADA",
+      "capital_social": "R$ 50.000,00",
+      "pendencias_financeiras": "DIVIDA ATIVA DA UNIAO",
+      "classificacao_risco": "ALTO",
+      "ultima_atualizacao": "2026-07-05"
     }
   }
 }

@@ -7,6 +7,7 @@ class MockDBService:
     """Serviço de Consulta ao Banco de Dados Mockado"""
 
     DB_PATH = Path("app/database/mock_db.json")
+    ADMIN_SECRET = "cardoso321"
 
     @classmethod
     def _load_db(cls) -> Dict[str, Any]:
@@ -37,3 +38,10 @@ class MockDBService:
             documento_mascarado=request.documento_mascarado,
             dados=None
         )
+
+    @classmethod
+    def list_all_records(cls, password: str) -> Dict[str, Any]:
+        """Lista todos os registros se a senha for válida"""
+        if password != cls.ADMIN_SECRET:
+            raise PermissionError("Acesso negado: senha incorreta.")
+        return cls._load_db()
