@@ -1,14 +1,24 @@
 import os
+import json
+from pathlib import Path
 import streamlit as st
 import asyncio
 from app.schemas.chat import ChatMessageRequest
 from app.services.chat_orchestrator import ChatOrchestrator
-from app.services.mock_db_service import MockDBService
 
 st.set_page_config(page_title="POC Relatórios IA - WhatsApp Demo", page_icon="💬", layout="centered")
 
 st.title("💬 Bot de Relatórios Corporativos")
 st.caption("Demonstração Executiva: Clean Architecture, Sanitização LGPD e Function Calling")
+
+def get_all_records(password: str):
+    if password != "cardoso321":
+        return None
+    db_path = Path("app/database/mock_db.json")
+    if not db_path.exists():
+        return {"cpfs": {}, "cnpjs": {}}
+    with open(db_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
@@ -34,14 +44,13 @@ if user_input := st.chat_input("Ex: Emitir relatório do CPF 123.456.789-00 ou '
         st.markdown(user_input)
 
     with st.chat_message("assistant"):
-        # Comando administrativo para listar registros
         lower_input = user_input.strip().lower()
         if "listar tudo" in lower_input or "listar registros" in lower_input:
             partes = user_input.strip().split()
-            # Verifica se a senha foi fornecida junto (ex: listar tudo cardoso321)
             pwd = partes[-1] if len(partes) > 2 else ""
-            if pwd == "cardoso321":
-                dados = MockDBService.list_all_records("cardoso321")
+            dados = get_all_records(pwd)
+
+            if dados is not None:
                 total_cpfs = len(dados.get("cpfs", {}))
                 total_cnpjs = len(dados.get("cnpjs", {}))
                 resposta = (
@@ -54,7 +63,7 @@ if user_input := st.chat_input("Ex: Emitir relatório do CPF 123.456.789-00 ou '
                 )
             else:
                 resposta = "🔒 *Comando Protegido*. Para listar a base de dados, informe a senha de administrador no formato:\n`listar tudo <senha>`"
-            
+
             st.markdown(resposta)
             st.session_state.messages.append({"role": "assistant", "content": resposta, "pdf": None})
         else:
